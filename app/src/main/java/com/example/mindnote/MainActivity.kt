@@ -7,7 +7,6 @@ import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
@@ -22,6 +21,7 @@ import com.example.mindnote.ui.viewmodels.AuthViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.compose.composable
+import com.example.mindnote.ui.screens.NotesScreen
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
@@ -65,18 +65,30 @@ fun MainScreen(
                 authViewModel = authViewModel,
                 onLoginSuccess = { navController.navigate("notes") { popUpTo("login") { inclusive = true } } },
                 onNavigateRegister = { navController.navigate("signup") },
-                googleSignIn = { /** google sign in **/ }
+                navController = navController
             )
         }
         composable("signup") {
             RegisterScreen(
                 authViewModel = authViewModel,
                 onRegisterSuccess = { navController.navigate("notes") { popUpTo("signup") { inclusive = true } } },
-                onNavigateLogin = { navController.navigate("login") }
+                navController = navController
             )
         }
         composable("notes") {
-            Text("Ana ekran (Map)")
+            NotesScreen(
+                notesList = listOf(
+                    "İlk Not",
+                    "Alışveriş Listesi",
+                    "Yapılacaklar"
+                ),
+                onAddNote = {
+                    /** ADD NOTE **/
+                },
+                onNoteClick = { note ->
+                    /** NOTE CLIKCING **/
+                }
+            )
         }
     }
 }

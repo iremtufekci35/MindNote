@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">MindNote</string>
+    <string name="default_web_client_id" translatable="false">408836166714-mor9egt2jhj5f9hu2mjcnhalj2346d4t.apps.googleusercontent.com</string>
 </resources>

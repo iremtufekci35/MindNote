@@ -73,8 +73,17 @@ dependencies {
 
     // Firebase - Authentication
     implementation(libs.firebase.auth)
+    implementation(libs.play.services.auth)
 
     // Compose
     implementation(libs.androidx.navigation.compose)
     implementation (libs.androidx.hilt.navigation.compose)
+
+    // Material 3
+    implementation(libs.material3)
+    implementation(libs.androidx.material3.window.size.class1)
+    implementation(libs.androidx.material3.adaptive.navigation.suite)
+    implementation(libs.androidx.material.icons.extended)
+
+
 }
